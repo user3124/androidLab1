@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#0B1A2F</color>        <!-- Темно-синий фон -->
+    <color name="surface">#1E3A6A</color>           <!-- Насыщенный голубой для карточек -->
+    <color name="primary">#7AD0FF</color>           <!-- Яркий голубой -->
+    <color name="primary_dark">#4AA3E0</color>      <!-- Темно-голубой -->
+    <color name="primary_light">#2A4F8A</color>     <!-- Средний голубой -->
+    <color name="accent">#7AD0FF</color>            <!-- Яркий голубой -->
+    <color name="accent_green">#7AD0FF</color>      <!-- Голубой для времени -->
+    <color name="text_primary">#FFFFFF</color>      <!-- Белый текст -->
+    <color name="text_secondary">#B0E0FF</color>    <!-- Светло-голубой -->
+    <color name="text_accent">#7AD0FF</color>       <!-- Яркий голубой -->
+</resources>
