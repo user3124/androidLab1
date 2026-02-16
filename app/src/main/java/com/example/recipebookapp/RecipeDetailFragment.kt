@@ -35,8 +35,7 @@ class RecipeDetailFragment : Fragment() {
         imageView.setImageResource(recipe.imageResId)
         nameView.text = recipe.name
         timeView.text = recipe.cookingTime
-
-        ingredientsView.text = recipe.ingredients.joinToString("\n☑ ", prefix = "☑ ")
+        ingredientsView.text = recipe.ingredients.joinToString("\n")
 
         val numberedInstructions = recipe.instructions
             .split("\n")
@@ -50,56 +49,85 @@ class RecipeDetailFragment : Fragment() {
             1 -> Recipe(
                 id = 1,
                 categoryId = 1,
-                name = "Омлет",
+                name = getString(R.string.recipe_omelette),
                 imageResId = R.drawable.recipe_omelette,
-                ingredients = listOf("Яйца - 3 шт", "Молоко - 50 мл", "Соль - по вкусу", "Масло - 20 г"),
-                instructions = "Взбейте яйца с молоком и солью\nРазогрейте сковороду с маслом\nВылейте смесь и жарьте 5 минут на среднем огне\nПодавайте горячим",
-                cookingTime = "15 мин"
+                ingredients = listOf(
+                    getString(R.string.ingredient_eggs),
+                    getString(R.string.ingredient_milk),
+                    getString(R.string.ingredient_salt),
+                    getString(R.string.ingredient_oil)
+                ),
+                instructions = getString(R.string.instructions_omelette),
+                cookingTime = getString(R.string.time_15min)
             )
             2 -> Recipe(
                 id = 2,
                 categoryId = 1,
-                name = "Каша овсяная",
+                name = getString(R.string.recipe_porridge),
                 imageResId = R.drawable.recipe_porridge,
-                ingredients = listOf("Овсянка - 50 г", "Молоко - 200 мл", "Сахар - 1 ч.л.", "Масло - 10 г"),
-                instructions = "Доведите молоко до кипения\nДобавьте овсянку и сахар\nВарите 10 минут, помешивая\nДобавьте масло перед подачей",
-                cookingTime = "20 мин"
+                ingredients = listOf(
+                    getString(R.string.ingredient_oatmeal),
+                    getString(R.string.ingredient_milk),
+                    getString(R.string.ingredient_sugar),
+                    getString(R.string.ingredient_oil)
+                ),
+                instructions = getString(R.string.instructions_porridge),
+                cookingTime = getString(R.string.time_20min)
             )
             3 -> Recipe(
                 id = 3,
                 categoryId = 2,
-                name = "Куриный суп",
+                name = getString(R.string.recipe_chicken_soup),
                 imageResId = R.drawable.recipe_chicken_soup,
-                ingredients = listOf("Курица - 300 г", "Картофель - 2 шт", "Морковь - 1 шт", "Лук - 1 шт", "Соль, перец - по вкусу"),
-                instructions = "Сварите курицу в 2 л воды (40 мин)\nДобавьте нарезанный картофель\nОбжарьте лук с морковью, добавьте в суп\nВарите еще 15 мин. Посолите, поперчите",
-                cookingTime = "45 мин"
+                ingredients = listOf(
+                    getString(R.string.ingredient_chicken),
+                    getString(R.string.ingredient_potato),
+                    getString(R.string.ingredient_carrot),
+                    getString(R.string.ingredient_onion),
+                    getString(R.string.ingredient_salt_pepper)
+                ),
+                instructions = getString(R.string.instructions_chicken_soup),
+                cookingTime = getString(R.string.time_45min)
             )
             4 -> Recipe(
                 id = 4,
                 categoryId = 3,
-                name = "Блины",
+                name = getString(R.string.recipe_pancakes),
                 imageResId = R.drawable.recipe_pancakes,
-                ingredients = listOf("Мука - 200 г", "Яйца - 2 шт", "Молоко - 500 мл", "Сахар - 2 ст.л.", "Масло - 2 ст.л.", "Соль - щепотка"),
-                instructions = "Смешайте яйца, сахар и соль\nДобавьте молоко, перемешайте\nПостепенно добавьте муку, взбивая венчиком\nВлейте масло, дайте постоять 15 мин\nЖарьте на сковороде до золотистого цвета",
-                cookingTime = "30 мин"
+                ingredients = listOf(
+                    getString(R.string.ingredient_flour),
+                    getString(R.string.ingredient_eggs),
+                    getString(R.string.ingredient_milk),
+                    getString(R.string.ingredient_sugar),
+                    getString(R.string.ingredient_oil),
+                    getString(R.string.ingredient_salt_pinch)
+                ),
+                instructions = getString(R.string.instructions_pancakes),
+                cookingTime = getString(R.string.time_30min)
             )
             5 -> Recipe(
                 id = 5,
                 categoryId = 3,
-                name = "Шоколадный торт",
+                name = getString(R.string.recipe_chocolate_cake),
                 imageResId = R.drawable.recipe_chocolate_cake,
-                ingredients = listOf("Шоколад - 200 г", "Масло - 200 г", "Яйца - 4 шт", "Сахар - 150 г", "Мука - 100 г"),
-                instructions = "Растопите шоколад с маслом\nВзбейте яйца с сахаром\nСмешайте все, добавьте муку\nВыпекайте при 180°C 30-35 мин\nДайте остыть перед подачей",
-                cookingTime = "60 мин"
+                ingredients = listOf(
+                    getString(R.string.ingredient_chocolate),
+                    getString(R.string.ingredient_butter),
+                    getString(R.string.ingredient_eggs),
+                    getString(R.string.ingredient_sugar),
+                    getString(R.string.ingredient_flour)
+                ),
+                instructions = getString(R.string.instructions_chocolate_cake),
+                cookingTime = getString(R.string.time_60min)
             )
             else -> Recipe(
                 id = 0,
                 categoryId = 0,
-                name = "Рецепт не найден",
+                name = getString(R.string.recipe_not_found),
                 imageResId = R.drawable.ic_launcher_foreground,
                 ingredients = emptyList(),
-                instructions = "Извините, рецепт не найден",
-                cookingTime = "0 мин"
+                instructions = getString(R.string.instructions_not_found),
+                cookingTime = getString(R.string.time_0min)
             )
         }
     }

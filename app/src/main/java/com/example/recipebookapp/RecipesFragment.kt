@@ -13,6 +13,7 @@ import com.example.recipebookapp.adapters.RecipesAdapter
 import com.example.recipebookapp.models.Recipe
 
 class RecipesFragment : Fragment() {
+
     private val args: RecipesFragmentArgs by navArgs()
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RecipesAdapter
@@ -41,26 +42,85 @@ class RecipesFragment : Fragment() {
 
     private fun getRecipesForCategory(categoryId: Int): List<Recipe> {
         return when (categoryId) {
-            1 -> listOf(
-                Recipe(1, 1, "Омлет", R.drawable.recipe_omelette,
-                    listOf("Яйца", "Молоко", "Соль"),
-                    "Взбить яйца с молоком, посолить. Жарить на сковороде 5 минут", "15 мин"),
-                Recipe(2, 1, "Каша овсяная", R.drawable.recipe_porridge,
-                    listOf("Овсянка", "Молоко", "Сахар"),
-                    "Залить овсянку молоком, варить 10 минут, добавить сахар", "20 мин")
+            1 -> listOf( // Завтраки
+                Recipe(
+                    id = 1,
+                    categoryId = 1,
+                    name = getString(R.string.recipe_omelette),
+                    imageResId = R.drawable.recipe_omelette,
+                    ingredients = listOf(
+                        getString(R.string.ingredient_eggs),
+                        getString(R.string.ingredient_milk),
+                        getString(R.string.ingredient_salt),
+                        getString(R.string.ingredient_oil)
+                    ),
+                    instructions = getString(R.string.instructions_omelette),
+                    cookingTime = getString(R.string.time_15min)
+                ),
+                Recipe(
+                    id = 2,
+                    categoryId = 1,
+                    name = getString(R.string.recipe_porridge),
+                    imageResId = R.drawable.recipe_porridge,
+                    ingredients = listOf(
+                        getString(R.string.ingredient_oatmeal),
+                        getString(R.string.ingredient_milk),
+                        getString(R.string.ingredient_sugar),
+                        getString(R.string.ingredient_oil)
+                    ),
+                    instructions = getString(R.string.instructions_porridge),
+                    cookingTime = getString(R.string.time_20min)
+                )
             )
-            2 -> listOf(
-                Recipe(3, 2, "Куриный суп", R.drawable.recipe_chicken_soup,
-                    listOf("Курица", "Лук", "Морковь"),
-                    "Сварить курицу, добавить овощи, варить 30 минут", "45 мин")
+            2 -> listOf( // Супы
+                Recipe(
+                    id = 3,
+                    categoryId = 2,
+                    name = getString(R.string.recipe_chicken_soup),
+                    imageResId = R.drawable.recipe_chicken_soup,
+                    ingredients = listOf(
+                        getString(R.string.ingredient_chicken),
+                        getString(R.string.ingredient_potato),
+                        getString(R.string.ingredient_carrot),
+                        getString(R.string.ingredient_onion),
+                        getString(R.string.ingredient_salt_pepper)
+                    ),
+                    instructions = getString(R.string.instructions_chicken_soup),
+                    cookingTime = getString(R.string.time_45min)
+                )
             )
-            3 -> listOf(
-                Recipe(4, 3, "Блины", R.drawable.recipe_pancakes,
-                    listOf("Мука", "Яйца", "Молоко"),
-                    "Смешать ингредиенты, жарить на сковороде", "30 мин"),
-                Recipe(5, 3, "Шоколадный торт", R.drawable.recipe_chocolate_cake,
-                    listOf("Шоколад", "Масло", "Яйца"),
-                    "Растопить шоколад, смешать с маслом, выпекать", "60 мин")
+            3 -> listOf( // Десерты
+                Recipe(
+                    id = 4,
+                    categoryId = 3,
+                    name = getString(R.string.recipe_pancakes),
+                    imageResId = R.drawable.recipe_pancakes,
+                    ingredients = listOf(
+                        getString(R.string.ingredient_flour),
+                        getString(R.string.ingredient_eggs),
+                        getString(R.string.ingredient_milk),
+                        getString(R.string.ingredient_sugar),
+                        getString(R.string.ingredient_oil),
+                        getString(R.string.ingredient_salt_pinch)
+                    ),
+                    instructions = getString(R.string.instructions_pancakes),
+                    cookingTime = getString(R.string.time_30min)
+                ),
+                Recipe(
+                    id = 5,
+                    categoryId = 3,
+                    name = getString(R.string.recipe_chocolate_cake),
+                    imageResId = R.drawable.recipe_chocolate_cake,
+                    ingredients = listOf(
+                        getString(R.string.ingredient_chocolate),
+                        getString(R.string.ingredient_butter),
+                        getString(R.string.ingredient_eggs),
+                        getString(R.string.ingredient_sugar),
+                        getString(R.string.ingredient_flour)
+                    ),
+                    instructions = getString(R.string.instructions_chocolate_cake),
+                    cookingTime = getString(R.string.time_60min)
+                )
             )
             else -> emptyList()
         }

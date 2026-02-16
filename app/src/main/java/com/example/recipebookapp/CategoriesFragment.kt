@@ -29,11 +29,25 @@ class CategoriesFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerViewCategories)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Создаем тестовые данные
         val categories = listOf(
-            Category(1, "Завтраки", R.drawable.ic_breakfast, "Вкусные и полезные завтраки"),
-            Category(2, "Супы", R.drawable.ic_soup, "Горячие и холодные супы"),
-            Category(3, "Десерты", R.drawable.ic_dessert, "Сладкие угощения")
+            Category(
+                id = 1,
+                name = getString(R.string.category_breakfast),
+                imageResId = R.drawable.ic_breakfast,
+                description = getString(R.string.category_breakfast_desc)
+            ),
+            Category(
+                id = 2,
+                name = getString(R.string.category_soup),
+                imageResId = R.drawable.ic_soup,
+                description = getString(R.string.category_soup_desc)
+            ),
+            Category(
+                id = 3,
+                name = getString(R.string.category_dessert),
+                imageResId = R.drawable.ic_dessert,
+                description = getString(R.string.category_dessert_desc)
+            )
         )
 
         adapter = CategoriesAdapter(categories) { category ->

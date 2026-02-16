@@ -1,5 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">RecipeBookApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Заголовки -->
+    <string name="title_categories">Категории рецептов</string>
+    <string name="title_recipes">Рецепты</string>
+    <string name="title_ingredients">Ингредиенты</string>
+    <string name="title_instructions">Приготовление</string>
+
+    <!-- Категории -->
+    <string name="category_breakfast">Завтраки</string>
+    <string name="category_soup">Супы</string>
+    <string name="category_dessert">Десерты</string>
+    <string name="category_breakfast_desc">Вкусные и полезные завтраки</string>
+    <string name="category_soup_desc">Горячие и холодные супы</string>
+    <string name="category_dessert_desc">Сладкие угощения</string>
+
+    <!-- Названия рецептов -->
+    <string name="recipe_omelette">Омлет</string>
+    <string name="recipe_porridge">Каша овсяная</string>
+    <string name="recipe_chicken_soup">Куриный суп</string>
+    <string name="recipe_pancakes">Блины</string>
+    <string name="recipe_chocolate_cake">Шоколадный торт</string>
+    <string name="recipe_not_found">Рецепт не найден</string>
+
+    <!-- Ингредиенты -->
+    <string name="ingredient_eggs">Яйца - 3 шт</string>
+    <string name="ingredient_milk">Молоко - 50 мл</string>
+    <string name="ingredient_salt">Соль - по вкусу</string>
+    <string name="ingredient_oil">Масло - 20 г</string>
+    <string name="ingredient_oatmeal">Овсянка - 50 г</string>
+    <string name="ingredient_sugar">Сахар - 1 ч.л.</string>
+    <string name="ingredient_chicken">Курица - 300 г</string>
+    <string name="ingredient_potato">Картофель - 2 шт</string>
+    <string name="ingredient_carrot">Морковь - 1 шт</string>
+    <string name="ingredient_onion">Лук - 1 шт</string>
+    <string name="ingredient_salt_pepper">Соль, перец - по вкусу</string>
+    <string name="ingredient_flour">Мука - 200 г</string>
+    <string name="ingredient_salt_pinch">Соль - щепотка</string>
+    <string name="ingredient_chocolate">Шоколад - 200 г</string>
+    <string name="ingredient_butter">Масло - 200 г</string>
+
+    <!-- Время приготовления -->
+    <string name="time_15min">15 мин</string>
+    <string name="time_20min">20 мин</string>
+    <string name="time_30min">30 мин</string>
+    <string name="time_45min">45 мин</string>
+    <string name="time_60min">60 мин</string>
+    <string name="time_0min">0 мин</string>
+
+    <!-- Инструкции -->
+    <string name="instructions_omelette">Взбейте яйца с молоком и солью\nРазогрейте сковороду с маслом\nВылейте смесь и жарьте 5 минут на среднем огне\nПодавайте горячим</string>
+    <string name="instructions_porridge">Доведите молоко до кипения\nДобавьте овсянку и сахар\nВарите 10 минут, помешивая\nДобавьте масло перед подачей</string>
+    <string name="instructions_chicken_soup">Сварите курицу в 2 л воды (40 мин)\nДобавьте нарезанный картофель\nОбжарьте лук с морковью, добавьте в суп\nВарите еще 15 мин. Посолите, поперчите</string>
+    <string name="instructions_pancakes">Смешайте яйца, сахар и соль\nДобавьте молоко, перемешайте\nПостепенно добавьте муку, взбивая венчиком\nВлейте масло, дайте постоять 15 мин\nЖарьте на сковороде до золотистого цвета</string>
+    <string name="instructions_chocolate_cake">Растопите шоколад с маслом\nВзбейте яйца с сахаром\nСмешайте все, добавьте муку\nВыпекайте при 180°C 30–35 мин\nДайте остыть перед подачей</string>
+    <string name="instructions_not_found">Извините, рецепт не найден</string>
 </resources>
