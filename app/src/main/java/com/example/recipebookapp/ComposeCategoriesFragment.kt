@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,7 +16,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
@@ -23,12 +25,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.recipebookapp.models.Category
 import com.example.recipebookapp.theme.RecipeBookTheme
 
 class ComposeCategoriesFragment : Fragment() {
+
+    // Состояние темы
+    private var isDarkTheme by mutableStateOf(false)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,15 +43,19 @@ class ComposeCategoriesFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                RecipeBookTheme {
+                RecipeBookTheme(darkTheme = isDarkTheme) {
                     Surface(
-                        color = MaterialTheme.colors.background
+                        color = MaterialTheme.colors.background,
+                        modifier = Modifier.fillMaxSize()
                     ) {
                         CategoriesScreen(
                             onCategoryClick = { categoryId ->
                                 val action = ComposeCategoriesFragmentDirections
                                     .actionCategoriesFragmentToRecipesFragment(categoryId)
                                 findNavController().navigate(action)
+                            },
+                            onThemeChanged = { dark ->
+                                isDarkTheme = dark
                             }
                         )
                     }
@@ -57,7 +67,8 @@ class ComposeCategoriesFragment : Fragment() {
 
 @Composable
 fun CategoriesScreen(
-    onCategoryClick: (Int) -> Unit
+    onCategoryClick: (Int) -> Unit,
+    onThemeChanged: (Boolean) -> Unit  // Новая функция для смены темы
 ) {
     val categories = listOf(
         Category(
@@ -92,9 +103,9 @@ fun CategoriesScreen(
             color = MaterialTheme.colors.onBackground,
             modifier = Modifier.padding(vertical = 24.dp)
         )
-
         LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier.weight(1f)
         ) {
             items(categories) { category ->
                 CategoryCard(
@@ -103,6 +114,25 @@ fun CategoriesScreen(
                 )
             }
         }
+        AndroidView(
+            factory = { context ->
+                LayoutInflater.from(context)
+                    .inflate(R.layout.theme_buttons, null)
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 16.dp),
+            update = { view ->
+                view.findViewById<Button>(R.id.lightThemeButton)?.setOnClickListener {
+                    onThemeChanged(false)  // светлая
+                    Toast.makeText(view.context, "Светлая тема", Toast.LENGTH_SHORT).show()
+                }
+                view.findViewById<Button>(R.id.darkThemeButton)?.setOnClickListener {
+                    onThemeChanged(true)   // темная
+                    Toast.makeText(view.context, "Темная тема", Toast.LENGTH_SHORT).show()
+                }
+            }
+        )
     }
 }
 
@@ -132,7 +162,6 @@ fun CategoryCard(
                     .size(70.dp)
                     .padding(end = 16.dp)
             )
-
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -149,7 +178,6 @@ fun CategoryCard(
                     modifier = Modifier.padding(top = 4.dp)
                 )
             }
-
             Text(
                 text = "→",
                 fontSize = 24.sp,

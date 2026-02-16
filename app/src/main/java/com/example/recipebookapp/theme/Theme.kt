@@ -7,39 +7,41 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-// Цвета из colors.xml
-val DarkBlueBackground = Color(0xFF0B1A2F)      // background
-val BlueSurface = Color(0xFF1E3A6A)             // surface
-val BrightBlue = Color(0xFF7AD0FF)               // primary, accent, accent_green
-val DarkBlue = Color(0xFF4AA3E0)                  // primary_dark
-val MediumBlue = Color(0xFF2A4F8A)                // primary_light
-val WhiteText = Color(0xFFFFFFFF)                  // text_primary
-val LightBlueText = Color(0xFFB0E0FF)              // text_secondary
+// Цвета для светлой темы
+val LightBackground = Color(0xFFF5F9FF)      // Светло-голубой фон
+val LightSurface = Color(0xFFFFFFFF)         // Белые карточки
+val LightPrimary = Color(0xFF2563EB)         // Синий
+val LightText = Color(0xFF1E293B)            // Темно-серый текст
+
+// Цвета для темной темы
+val DarkBackground = Color(0xFF0B1A2F)       // Темно-синий фон
+val DarkSurface = Color(0xFF1E3A6A)          // Темно-синие карточки
+val DarkPrimary = Color(0xFF7AD0FF)          // Ярко-голубой
+val DarkText = Color(0xFFFFFFFF)              // Белый текст
 
 val LightColorPalette = lightColors(
-    primary = BrightBlue,
-    primaryVariant = DarkBlue,
-    secondary = BrightBlue,
-    background = DarkBlueBackground,
-    surface = BlueSurface,
-    onPrimary = DarkBlueBackground,
-    onSecondary = DarkBlueBackground,
-    onBackground = WhiteText,
-    onSurface = WhiteText,
-    onError = WhiteText
+    primary = LightPrimary,
+    primaryVariant = LightPrimary,
+    secondary = LightPrimary,
+    background = LightBackground,
+    surface = LightSurface,
+    onPrimary = Color.White,
+    onSecondary = Color.White,
+    onBackground = LightText,
+    onSurface = LightText,
+    onError = Color.White
 )
-
-// Темная тема
 val DarkColorPalette = darkColors(
-    primary = BrightBlue,
-    primaryVariant = DarkBlue,
-    secondary = BrightBlue,
-    background = DarkBlueBackground,
-    surface = BlueSurface,
-    onPrimary = WhiteText,
-    onSecondary = WhiteText,
-    onBackground = WhiteText,
-    onSurface = WhiteText
+    primary = DarkPrimary,
+    primaryVariant = DarkPrimary,
+    secondary = DarkPrimary,
+    background = DarkBackground,
+    surface = DarkSurface,
+    onPrimary = DarkBackground,
+    onSecondary = DarkBackground,
+    onBackground = DarkText,
+    onSurface = DarkText,
+    onError = Color.White
 )
 
 @Composable
